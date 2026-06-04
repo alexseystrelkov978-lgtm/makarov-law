@@ -1,18 +1,49 @@
 # 🍬 Сайт-конфетка Сергея Макарова
 
-Лендинг: **возврат денег от мошенников** в Казахстане. Гонорар успеха, кейсы, международный контур, 14 секций.
+Лендинг: **возврат денег от мошенников** в Казахстане. Гонорар успеха, кейсы, международный контур.
 
-## Красивые ссылки для клиентов
+## Основной хостинг (Алексей Стрелков)
 
-| Назначение | URL |
-|------------|-----|
-| **Короткая на консультацию** | `https://finmanager063-design.github.io/yrist/konsult.html` |
-| **Страница «скопировать текст»** | `https://finmanager063-design.github.io/yrist/share.html` |
-| Полный сайт | `https://finmanager063-design.github.io/yrist/` |
+| | |
+|---|---|
+| **Аккаунт GitHub** | `alexseystrelkov978-lgtm` |
+| **Репозиторий** | [makarov-law](https://github.com/alexseystrelkov978-lgtm/makarov-law) |
+| **Домен** | https://legalconsult.art/ |
+| **Зеркало** | https://alexseystrelkov978-lgtm.github.io/makarov-law/ |
 
-В WhatsApp/Telegram вставляйте **konsult.html** — откроется карточка с заголовком и картинкой, затем форма записи.
+Деплой:
 
-Свой домен: см. `CNAME.example` → GitHub Pages → Custom domain.
+```bash
+cd "/home/vladymyr/Рабочий стол/rabota"
+./deploy-makarov.sh
+```
+
+### DNS для `legalconsult.art`
+
+| Тип | Ім'я | Вміст |
+|-----|------|--------|
+| A | `@` | `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153` |
+| CNAME | `www` | **`alexseystrelkov978-lgtm.github.io`** |
+
+GitHub → **makarov-law** → Settings → Pages → Custom domain: `legalconsult.art` → после DNS включить **Enforce HTTPS**.
+
+## Ссылки для клиентов
+
+| Назначение | URL (основной) |
+|------------|----------------|
+| Консультация | `https://legalconsult.art/konsult.html` |
+| Поделиться текстом | `https://legalconsult.art/share.html` |
+| Полный сайт | `https://legalconsult.art/` |
+
+Пока домен не резолвится: `https://alexseystrelkov978-lgtm.github.io/makarov-law/konsult.html`
+
+## Зеркало (finmanager063-design)
+
+Резервный репозиторий **finmanager063-design/yrist** — `./deploy-yrist.sh` (токен от finmanager063-design).
+
+## Шаблон для продажи
+
+Папка **`lawyer-demo/`** — копия без Сергея Макарова (Иван Иванов, вымышленные бренды). См. `lawyer-demo/README.md`.
 
 ## Контакты на сайте
 
@@ -20,36 +51,8 @@
 - Email: **finmanager063@gmail.com**
 - Telegram: **@smakarov_law**
 
-## GitHub Pages (основной адрес — yrist)
-
-Сайт лежит в репозитории **finmanager063-design/yrist**. Локальная папка `rabota/` — это тот же проект.
-
-**Опубликовать на старый URL:**
-
-```bash
-cd "/home/vladymyr/Рабочий стол/rabota"
-export YRIST_DEPLOY_TOKEN=ghp_...   # PAT от finmanager063-design
-./deploy-yrist.sh
-```
-
-Либо: push в `makarov-backup` + секрет `YRIST_DEPLOY_TOKEN` в настройках репозитория **makarov-law** (Actions) — workflow сам скопирует файлы в yrist.
-
-**Пока yrist не обновлён** (тот же контент уже на зеркале):
-
-https://alexseystrelkov978-lgtm.github.io/makarov-law/
-
-Settings → Pages → branch `main`, folder `/ (root)`.
-
 ## Локально
 
 ```bash
 python3 -m http.server 8080
 ```
-
-## Перед запуском (чек-лист)
-
-- [ ] Фото Сергея → `assets/img/sergey.jpg` (подключить в `.hero-card__photo` и `.about__photo`)
-- [ ] Скриншоты переводов / кейсов
-- [ ] Видеоотзывы в секцию `#video`
-- [ ] Номер свидетельства в подвале
-- [ ] Яндекс.Метрика / Google Analytics
